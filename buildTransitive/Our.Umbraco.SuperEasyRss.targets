@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <OurUmbracoSuperEasyRssContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.SuperEasyRss\**\*.*</OurUmbracoSuperEasyRssContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyOurUmbracoSuperEasyRssAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <OurUmbracoSuperEasyRssContentFiles Include="$(OurUmbracoSuperEasyRssContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying Our.Umbraco.SuperEasyRss files: $(OurUmbracoSuperEasyRssContentFilesPath) - #@(OurUmbracoSuperEasyRssContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(OurUmbracoSuperEasyRssContentFiles)" DestinationFiles="@(OurUmbracoSuperEasyRssContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.SuperEasyRss\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearOurUmbracoSuperEasyRssAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <OurUmbracoSuperEasyRssDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.SuperEasyRss\" />
+    </ItemGroup>
+    <Message Text="Clear old Our.Umbraco.SuperEasyRss data" Importance="high" />
+    <RemoveDir Directories="@(OurUmbracoSuperEasyRssDir)" />
+  </Target>
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>Our.Umbraco.SuperEasyRss</Product>
+    <PackageId>Our.Umbraco.SuperEasyRss</PackageId>
+    <Title>Our.Umbraco.SuperEasyRss</Title>
+    <Description>A Super Easy RSS Feed generator for Umbraco 10+ sites. Designed to be as simple and unobtrusive as possible by adding as few additional files as possible and requiring minimal config in order to get a working RSS feed page for your blog, news section or similar.</Description>
+    <PackageTags>umbraco plugin package</PackageTags>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <Authors>Terence Burridge</Authors>
+    <PackageProjectUrl>https://github.com/CodeBunTes/Our.Umbraco.SuperEasyRss</PackageProjectUrl>
+    <Version>0.9.4-beta</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\Our.Umbraco.SuperEasyRss\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Migrations\package.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <EmbeddedResource Include="Migrations\package.xml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+  </ItemGroup>
+</Project>
