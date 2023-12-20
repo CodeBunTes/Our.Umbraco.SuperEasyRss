@@ -23,7 +23,7 @@ All logic is performed within the template and no additional models, controllers
 `<link rel="alternate" type="application/rss+xml" href="/url/to/feedpage" title="RSS Feed for x">`
 
 
-By default the RSS feed will use the immediate parent as the 'root' of the feed, and include all descendent documents unless they have an 'Exclude From Rss' True/False field set to false. Titles and descriptions will search for sensibly named fields by default, and published date and creator will take details from the published node.
+By default the RSS feed will use the immediate parent as the 'root' of the feed, and include all descendent documents unless they have an 'Exclude From Rss' True/False field set to true. Titles and descriptions will search for sensibly named fields by default, and published date and creator will take details from the published node.
 
 Different roots, restrictions to certain doctypes or fields to read can be configured on the created RSS page.
 
