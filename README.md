@@ -18,9 +18,10 @@ All logic is performed within the template and no additional models, controllers
 2) Run Umbraco back office.
 3) Configure any doctypes you'd like 'Rss Feed Page' to be available beneath. This will usually be the root folder of a blog or news section.
 4) Create a new page of type 'Rss Feed Page' where you want the RSS feed to sit.
-5) It is recommended, but not necessary, to manually add to the public HTML a reference to the RSS feed using the link tag.
+5) It is recommended, but not necessary, to manually add to the HTML for the publically viewable root page of the blog or news section a reference back to the RSS feed using the link tag. ie:-
 
 `<link rel="alternate" type="application/rss+xml" href="/url/to/feedpage" title="RSS Feed for x">`
+
 
 By default the RSS feed will use the immediate parent as the 'root' of the feed, and include all descendent documents unless they have an 'Exclude From Rss' True/False field set to false. Titles and descriptions will search for sensibly named fields by default, and published date and creator will take details from the published node.
 
