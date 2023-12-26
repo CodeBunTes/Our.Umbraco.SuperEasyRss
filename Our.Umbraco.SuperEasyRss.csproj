@@ -10,7 +10,9 @@
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <Authors>Terence Burridge</Authors>
     <PackageProjectUrl>https://github.com/CodeBunTes/Our.Umbraco.SuperEasyRss</PackageProjectUrl>
-    <Version>0.9.4-beta</Version>
+    <Version>0.9.6-beta</Version>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,11 +22,14 @@
 
   <ItemGroup>
     <Content Include="App_Plugins\Our.Umbraco.SuperEasyRss\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+	<Content Include="Views\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
     <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+	<None Include="README.md" Pack="true" PackagePath="\" />	  
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Migrations\package.xml" />
+    <None Remove="Views\RSSFeedPage.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

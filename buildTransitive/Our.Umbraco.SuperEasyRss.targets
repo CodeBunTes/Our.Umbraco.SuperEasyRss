@@ -1,6 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <OurUmbracoSuperEasyRssContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.SuperEasyRss\**\*.*</OurUmbracoSuperEasyRssContentFilesPath>
+	<OurUmbracoSuperEasyRssViewsFilesPath>$(MSBuildThisFileDirectory)..\Views\**\*.*</OurUmbracoSuperEasyRssViewsFilesPath>
   </PropertyGroup>
 
   <Target Name="CopyOurUmbracoSuperEasyRssAssets" BeforeTargets="Build">
@@ -11,7 +12,18 @@
     <Copy SourceFiles="@(OurUmbracoSuperEasyRssContentFiles)" DestinationFiles="@(OurUmbracoSuperEasyRssContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.SuperEasyRss\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
   </Target>
 
-  <Target Name="ClearOurUmbracoSuperEasyRssAssets" BeforeTargets="Clean">
+	<Target Name="CopyOurUmbracoSuperEasyRssAssets" BeforeTargets="Build">
+		<ItemGroup>
+			<OurUmbracoSuperEasyRssViewsFiles Include="$(OurUmbracoSuperEasyRssViewsFilesPath)" />
+		</ItemGroup>
+		<Message Text="Copying Our.Umbraco.SuperEasyRss views (if not present)" Importance="high" />
+		<Copy SourceFiles="@(OurUmbracoSuperEasyRssViewsFiles)"
+			  DestinationFiles="@(OurUmbracoSuperEasyRssViewsFiles->'$(MSBuildProjectDirectory)\Views\%(RecursiveDir)%(Filename)%(Extension)')"
+			  Condition="%(Filename)!='' AND (!Exists('$(MSBuildProjectDirectory)\Views\%(RecursiveDir)%(Filename)%(Extension)'))"
+			  SkipUnchangedFiles="true" />
+	</Target>
+
+	<Target Name="ClearOurUmbracoSuperEasyRssAssets" BeforeTargets="Clean">
     <ItemGroup>
       <OurUmbracoSuperEasyRssDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.SuperEasyRss\" />
     </ItemGroup>
