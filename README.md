@@ -28,3 +28,13 @@ By default the RSS feed will use the immediate parent as the 'root' of the feed,
 Different roots, restrictions to certain doctypes or fields to read can be configured on the created RSS page.
 
 The page cannot be used at the site root unless an explicit alternative root node has been picked as it will otherwise have no parent in that case.
+
+## Use with xStatic
+
+This can be used with the static site generator package xStatic from Sam Mullins, however by default the feed page will be generated as an HTML file which returns a text/html mime type by default. Some feed readers will be fine with this, however ideally it should be marked as containing XML. There are more involved ways of doing this in code in xStatic, however one of the simplest methods is with the back office tooling for actions it provides.
+
+Once you know the URL your feed page will appear on simply set up a new FileRenameAction action to rename the default generated .html file as a .xml file as renames are performed at the end.
+
+For example:-
+**FilePath:** blog/rss/index.html
+**NewFilePath:** blog/rss/index.xml
