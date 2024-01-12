@@ -37,4 +37,5 @@ Once you know the URL your feed page will appear on simply set up a new FileRena
 
 For example:-
 **FilePath:** blog/rss/index.html
+
 **NewFilePath:** blog/rss/index.xml
