@@ -10,7 +10,7 @@
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <Authors>Terence Burridge</Authors>
     <PackageProjectUrl>https://github.com/CodeBunTes/Our.Umbraco.SuperEasyRss</PackageProjectUrl>
-    <Version>0.9.6-beta</Version>
+    <Version>1.0.0</Version>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
