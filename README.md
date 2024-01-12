@@ -36,5 +36,7 @@ This can be used with the static site generator package xStatic from Sam Mullins
 Once you know the URL your feed page will appear on simply set up a new FileRenameAction action to rename the default generated .html file as a .xml file as renames are performed at the end.
 
 For example:-
+
 **FilePath:** blog/rss/index.html
+
 **NewFilePath:** blog/rss/index.xml
